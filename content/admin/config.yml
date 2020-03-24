@@ -1,0 +1,32 @@
+# Config for Netflix CMS
+
+backend:
+  name: github
+  repo: USERNAME/REPO # Path to your GitHub repository
+  branch: master # Branch to update (optional; defaults to master)
+
+publish_mode: editorial_workflow
+
+media_folder: "content/images" # Media files uploaded from the CMS will be stored here
+public_folder: "/images"
+
+collections: # A list of collections the CMS should be able to edit
+  - name: "posts" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Posts" # Used in the UI, ie.: "New Post"
+    folder: "content/posts" # The path to the folder where the documents are stored
+    sort: "date:desc" # Default is title:asc
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Tags", name: "tags", widget: "string", default: "general"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "about"
+        label: "about"
+        file: "content/pages/about.md"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
