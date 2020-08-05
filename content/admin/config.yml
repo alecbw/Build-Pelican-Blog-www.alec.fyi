@@ -2,10 +2,10 @@
 
 backend:
   name: github
-  repo: USERNAME/REPO # Path to your GitHub repository
+  repo: YOURNAME/YOURREPO # Path to your GitHub repository
   branch: master # Branch to update (optional; defaults to master)
 
-publish_mode: editorial_workflow
+publish_mode: "editorial_workflow"
 
 media_folder: "content/images" # Media files uploaded from the CMS will be stored here
 public_folder: "/images"
@@ -19,7 +19,7 @@ collections: # A list of collections the CMS should be able to edit
     fields: # The fields each document in this collection have
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Tags", name: "tags", widget: "string", default: "general"}
+      - {label: "Tags", name: "tags", widget: "list", default: ["general"]}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "pages"
     label: "Pages"
